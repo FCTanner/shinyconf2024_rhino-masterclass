@@ -13,7 +13,7 @@ create_pool <- function(conf) {
   args <- c(list(driver), conf$db_args)
 
   # Step 5:
-  # ?
+  log$info("Opening DB pool")
 
   do.call(dbPool, args)
 }
@@ -26,7 +26,12 @@ close_pool <- function(pool) {
 }
 
 # Step 4:
-# ?
+#' @export
+pool <- create_pool(conf = config$get())
 
 # Step 6:
-# ?
+reg.finalizer(pool, close_pool, onexit = TRUE) # Better option: Use R6 class to wrap `pool` from Step 4
+
+.on_unload <- function(ns) {
+  close_pool(pool)
+}
