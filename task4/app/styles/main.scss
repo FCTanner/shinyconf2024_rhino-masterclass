@@ -1,15 +1,19 @@
 // Step 3:
-// ?
+@use "base";
 
 .center {
   // Step 1:
-  // ?
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 body {
   // Step 4:
-  // ?
+  @include base.gradient();
 
   // Step 3:
-  // ?
+  font: 100% base.$font-stack;
+  color: base.$primary-color;
 }

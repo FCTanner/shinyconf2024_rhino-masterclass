@@ -9,7 +9,7 @@ ui <- function(id) {
   shiny$fluidPage(
     shiny$div(
       # Step 1:
-      style = "display: flex; justify-content: center; align-items: center; height: 100vh;",
+      class = "center",
       tags$h1("Hello!")
     )
   )
